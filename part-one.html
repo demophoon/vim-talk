@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Vim CAT BarCamp Talk</title>
+        <link rel="stylesheet" href="http://cdn.brittg.com/css/bootstrap.min.css" />
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        <style type="text/css" media="screen">
+            html, body {
+                background: #1c1c1c;
+                //background: #333;
+                height: 100%;
+                width: 100%;
+                margin: 0px;
+                padding: 0px;
+                overflow: hidden;
+                font-family: 'Inconsolata';
+                font-size: large;
+            }
+            .presentationcontainer {
+                height: 100%;
+                width: 100%;
+            }
+            * {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                -webkit-touch-callout: none; /* Don't show a callout when user long-taps on a link */
+                -webkit-tap-highlight-color: rgba(255,255,255,0); /* Disable the ugly tap highlighting */
+            }
+            .no_padding {
+                padding: 0px !important;
+            }
+            .terminal {
+                background: #121212 !important;
+                color: #fff;
+                font-family: "Ubuntu Mono", "DejaVu Sans Mono", "Liberation Mono", monospace;
+                font-size: 16px;
+            }
+            .terminal-cursor {
+                background: #fff !important;
+            }
+            .terminal .counter, .slide.hide-counter .counter {
+                display: none;
+            }
+            .terminal * {
+                font-size: 10px;
+                padding: 0px;
+                line-height: 10px;
+            }
+            #presentation > div {
+                margin: 0% 10%;
+                padding: 25px;
+                display: inline-block;
+                height: 400px;
+                width: 600px;
+                background: #1c1c1c;
+                color: #f1f1f1;
+                float: left;
+            }
+            .slide {
+                height: 400px;
+                width: 600px;
+                position: relative;
+            }
+            .counter {
+                position: absolute;
+                bottom: 20px;
+                right: 25px;
+                text-align: right;
+                font-size: x-small;
+                line-height: 10px;
+                color: rgba(255, 255, 255, .35);
+            }
+            ul {
+                line-height: 40px;
+            }
+            li {
+                line-height: 30px;
+            }
+            .slide h3 {
+                padding-bottom: 15px;
+            }
+            .center-wrapper {
+                width: 550px;
+                height: 350px;
+                line-height: 350px;
+            }
+            .center {
+                display: inline-block;
+                vertical-align: middle;
+                text-align: center;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <div class="presentationcontainer" id="presentationcontainer">
+            <div class="presentation" id="presentation">
+
+                <!-- Slide -->
+                <div class='slide no_padding terminal' id="vim_terminal">
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide initial hide-counter' style="background: url('./img/background1.jpg');">
+                    <center>
+                        <div style="padding-top: 25px;">
+                            <h1>Supercharging Vim</h1>
+                            <h3>A Beginner's Guide to the Universe.</h3>
+                        </div>
+                        <div style="padding-top: 100px">
+                            <p>Britt Gresham</p>
+                            <p>http://brittg.com/catbarcamp</p>
+                        </div>
+                    </center>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Who am I?</h3>
+                    </center>
+                    <div class='container'>
+                        <div class='row'>
+                            <div class='span4'>
+                                <ul>
+                                    <li>From Kansas City</li>
+                                    <li>
+                                    Primary Languages
+                                    <ul>
+                                        <li>Python</li>
+                                        <li>Javascript</li>
+                                        <li>Html</li>
+                                    </ul>
+                                    </li>
+                                    <li>Using Vim for about 1.5 years</li>
+                                    <li>Software Engineer at Puppet Labs</li>
+                                </ul>
+                            </div>
+                            <div class='span3'>
+                                <img src='https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/10562592_10154563871360651_2961928414955623494_o.jpg' alt='' />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>How are you using Vim?</h3>
+                    </center>
+                    <p>
+                    Do you find yourself using the arrows a lot?<br>
+                    <br>
+                    Does it take more time traversing the file than editing?<br>
+                    <br>
+                    Every time you fire up Vim you are left wondering how your Ninja Vim friend can edit so efficiently?<br>
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide hide-counter' style="background: url('./img/background2.jpg');">
+                    <div class='center-wrapper'>
+                        <span class='center'>
+                            <h1><center>WORRY NO MORE</center></h1>
+                        </span>
+                    </div>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Vim Modes</h3>
+                    </center>
+                    <p>
+                    Vim has Three basic modes of operation.
+                    </p>
+                    <ul>
+                        <li>&lt;ESC&gt; - Normal Mode. Lets you navigate the file. The
+                        "Gateway Mode".</li>
+                        <li>i - Insert Mode. Lets you edit the text.</li>
+                        <li>v - Visual Mode. Lets you select text.</li>
+                    </ul>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Vim Motions</h3>
+                    </center>
+                    <ul>
+                        <li>h - Move <b>Left</b> one character</li>
+                        <li>j - Move <b>Down</b> one character</li>
+                        <li>k - Move <b>Up</b> one character</li>
+                        <li>l - Move <b>Right</b> one character</li>
+                    </ul>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Vim Motions</h3>
+                    </center>
+                    <ul>
+                        <li>w - Move <b>Forwards</b> one <b>Word</b></li>
+                        <li>b - Move <b>Backwards</b> one <b>Word</b></li>
+                        <li>e - Move to <b>End</b> of next <b>Word</b></li>
+                    </ul>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Vim Motions</h3>
+                    </center>
+                    <ul>
+                        <li>W - Move <b>Forwards</b> one <b>Big Word</b></li>
+                        <li>B - Move <b>Backwards</b> one <b>Big Word</b></li>
+                        <li>E - Move to <b>End</b> of next <b>Big Word</b></li>
+                    </ul>
+                    <p>
+                    What is a <b>Big Word</b><br>
+                    Well... Big words are any non-whitespace character.
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Vim Motions</h3>
+                    </center>
+                    <ul>
+                        <li>) - Move to <b>Forward</b> one <b>Sentence</b></li>
+                        <li>( - Move to <b>Backward</b> one <b>Sentence</b></li>
+                        <li>} - Move <b>Forward</b> one <b>Paragraph</b></li>
+                        <li>{ - Move <b>Backward</b> one <b>Paragraph</b></li>
+                    </ul>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Vim Motions</h3>
+                    </center>
+                    <p>
+                    Remember: Any motion can be preceded by a number to let Vim
+                    know how many times you would like to repeat the motion.
+                    </p><br>
+                    <p>
+                    For example:<br>
+                    <ul>
+                        <li>3w    -  Move 3 words forward.</li>
+                        <li>2{    -  Move 2 paragraphs backward.</li>
+                        <li>900e  -  Move to the end of 900 words.</li>
+                    </ul>
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Vim Motions</h3>
+                    </center>
+                    <p>
+                    You can also use the `.` command to rerun the last edit.
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Vim Operators</h3>
+                    </center>
+                    <ul>
+                        <li>c - Change Text</li>
+                        <li>d - Delete Text</li>
+                        <li>y - Yank Text</li>
+                    </ul>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Vim Operators</h3>
+                    </center>
+                    <p>
+                    Vim operators can not be used alone. They must be paired
+                    with a motion.<br>
+                    If you think about it, that really makes sense. You cannot
+                    just "change" or just "delete".<br>
+                    You can however "change a word" or "delete a word".
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Vim Operators</h3>
+                    </center>
+                    <ul>
+                        <li>cw - Change a word</li>
+                        <li>dw - Delete a word</li>
+                        <li>yw - Yank a word</li>
+                    </ul>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Vim Operators</h3>
+                    </center>
+                    <p>
+                    But wait... There is more than just those motions.
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Vim Operators</h3>
+                    </center>
+                    <ul>
+                        <li>c) - Change a sentence</li>
+                        <li>y} - Yank a paragraph</li>
+                        <li>d4w - Delete 4 words</li>
+                    </ul>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Vim Text Objects</h3>
+                    </center>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Vim Text Objects</h3>
+                    </center>
+                    <p>
+                    Text objects bring even more power to your Vim editing.<br>
+                    Now instead of needing to move to the beginning of a word
+                    to perform an operation on it you can use a Text object.<br>
+                    <br>
+                    <ul>
+                        <li>i - Inside of</li>
+                        <li>a - Around</li>
+                    </ul>
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Vim Text Objects</h3>
+                    </center>
+                    <p>
+                    <ul>
+                        <li>ciw - Change Inside of a Word.</li>
+                        <li>caw - Change Around a Word.</li>
+                        <li>diw - Delete Inside of a Word.</li>
+                        <li>daw - Delete Around a Word.</li>
+                        <li>yiw - Yank Inside of a Word.</li>
+                        <li>yaw - Yank Around a Word.</li>
+                    </ul>
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Vim Text Objects</h3>
+                        <h4>Demo</h4>
+                    </center>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Configurations</h3>
+                    </center>
+                    <p>
+                    Your personal Vim configurations can be found in
+                    ~/.vimrc<br>
+                    All of your Vim plugin files can be found in ~/.vim/
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Sample Vimrc</h3>
+                        <h4>Demo</h4>
+                    </center>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Configurations</h3>
+                    </center>
+                    <p>
+                    It may seem a little bit over the top but I strongly suggest
+                    you use some form of version control to manage your
+                    dotfiles. Not just your Vim configurations but all of your
+                    dotfiles.
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Use Github to manage your dotfiles</h3>
+                    </center>
+                    <ul>
+                        <li>Makes your dotfiles universally available.</li>
+                        <li>You can easily make updates and track tricks you've learned.</li>
+                        <li>Free to make changes with no worries at all.</li>
+                        <li>It's what all the cool kids are doing.</li>
+                    </ul>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Demo</h3>
+                    </center>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide hide-counter' style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('./img/background3.jpg');">
+                    <div class='center-wrapper'>
+                        <span class='center'>
+                            <h1><center>Questions?</center></h1>
+                        </span>
+                    </div>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide hide-counter' style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('./img/background4.jpg');">
+                    <center>
+                        <h3>Thanks for Coming</h3>
+                        <h4>Contact me</h4>
+                    </center>
+                    <ul>
+                        <li>Website: http://brittg.com/</li>
+                        <li>Email: brittcgresham@gmail.com</li>
+                        <li>Twitter: @demophoon</li>
+                        <li>Github: https://github.com/demophoon</li>
+                        <li>LinkedIn: http://brittg.com/linkedin</li>
+                    </ul>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                </div>
+                <!-- End of Slide -->
+
+            </div>
+        </div>
+
+        <script src="./js/jquery-1.8.1.min.js"></script>
+        <script src="./js/presenteer-1.0.min.js"></script>
+
+        <script src="http://www.brittg.sexy/static/js/term.js"></script>
+        <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+
+        <script type="text/javascript" charset="utf-8">
+            var presentation;
+
+            (function() {
+                var connected = false;
+                var sock;
+                var term;
+                function connect_to_ws() {
+                    //return; // Just for debugging. Remove this line for terminal.
+                    var webvim_server = "http://linux.home.brittg.com:6543/terminal/sandbox";
+                    sock = new SockJS(webvim_server);
+                    sock.onopen = function() {
+                        term.fixResize();
+                        sock.ready = true;
+                    };
+                    sock.onmessage = function(e) {
+                        if (e.data) {
+                            term.write(e.data);
+                        }
+                    };
+                    sock.onclose = function() {
+                        sock.ready = false;
+                        term.reset();
+                        term.writeln("Session Disconnected.");
+                    };
+                }
+                function init() {
+                    var termWidth = 600;
+                    var termHeight = 400;
+                    var termFontSize = 10;
+                    term = new Terminal({
+                        cols:119,
+                        rows:40,
+                        screenKeys:true
+                    });
+
+                    term.open(document.getElementById("vim_terminal"));
+
+                    term.on("data", function(data) {
+                        var current = presentation.getCurrentIndex();
+                        if (current == 0) {
+                            sock.send("0" + data);
+                        }
+                        setTimeout(function() { sock.send(" "); }, 100);
+                    });
+
+                    term._resize = term.resize;
+                    term.resize = function(x, y) {
+                        term._resize(x, y);
+                        sock.send("1" + x + "," + y);
+                    };
+
+                    term.fixResize = function() {
+                        setTimeout(function() {
+                            term.resize(119, 40);
+                        }, 50);
+                    };
+                    if (!connected) {
+                        connect_to_ws();
+                        connected = true;
+                    }
+                }
+                $(document).ready(init);
+            }());
+
+            $(window).load(function() {
+                // Create the HTML for the indicator
+                $("#presentation > div").each(function(index,elm) {
+                    $(elm).append("<div class='counter'>" + (index) + "<br>Follow along at http://brittg.com/catbarcamp</div>");
+                });
+
+                presentation = new Presenteer(
+                    "#presentation",
+                    $("#presentation > div"),
+                    { onAfterEnter : function(elm) {  } }
+                );
+
+                var locked = false;
+                var last = 1;
+
+                $(document).keydown(function(e) {
+                    var current = presentation.getCurrentIndex();
+                    if (current == 0) {
+                        if (!(e.altKey && e.ctrlKey)) {
+                            return;
+                        }
+                    }
+                    switch (e.keyCode) {
+                    case 32:
+                    case 39:
+                    case 40:
+                        if (current == 0) {
+                            return;
+                        }
+                        if (!locked) {
+                            presentation.next();
+                        }
+                        break;
+                    case 38:
+                    case 37:
+                        if (current == 0) {
+                            return;
+                        }
+                        if (!locked) {
+                            presentation.prev();
+                        }
+                        break;
+                    case 84:
+                        if (!locked) {
+                            if (current == 0) {
+                                presentation.show(last);
+                            } else {
+                                last = current;
+                                presentation.show(0)
+                            }
+                        }
+                        break;
+                    case 76:
+                        if (e.ctrlKey && e.altKey) {
+                            locked = !locked;
+                        }
+                        break;
+                    default:
+                        console.log(e);
+                        break;
+                    }
+                });
+                //$("#presentationcontainer").on("click", function() { presentation.next(); });
+                $('.initial').focus();
+                presentation.start();
+                presentation.show(1);
+            });
+        </script>
+
+    </body>
+</html>
