@@ -247,8 +247,9 @@
                 var term;
                 function connect_to_ws() {
                     //return; // Just for debugging. Remove this line for terminal.
-                    var webvim_server = "http://linux.home.brittg.com:6543/terminal/sandbox";
-                    sock = new SockJS(webvim_server);
+                    var webvim_server = "";
+                    //sock = new SockJS(webvim_server);
+                    sock = {}
                     sock.onopen = function() {
                         term.fixResize();
                         sock.ready = true;
@@ -261,8 +262,9 @@
                     sock.onclose = function() {
                         sock.ready = false;
                         term.reset();
-                        term.writeln("Come back later to view the demo.");
+                        term.writeln("The demos are over. Checkout http://brittg.sexy for an instance of Vim you can play with");
                     };
+                    sock.onclose();
                 }
                 function init() {
                     var termWidth = 600;
