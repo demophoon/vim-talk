@@ -88,6 +88,7 @@
                 line-height: 350px;
             }
             .center {
+                width: 550px;
                 display: inline-block;
                 vertical-align: middle;
                 text-align: center;
@@ -106,11 +107,11 @@
                 <!-- End of Slide -->
 
                 <!-- Slide -->
-                <div class='slide initial hide-counter' style="background: url('./img/background1.jpg');">
+                <div class='slide initial hide-counter' style="background: url('./img/background4.jpg');">
                     <center>
                         <div style="padding-top: 25px;">
                             <h1>Supercharging Vim</h1>
-                            <h3>A Beginner's Guide to the Universe.</h3>
+                            <h3>Plugins Plugins Plugins!</h3>
                         </div>
                         <div style="padding-top: 100px">
                             <p>Britt Gresham</p>
@@ -153,23 +154,28 @@
                 <!-- Slide -->
                 <div class='slide'>
                     <center>
-                        <h3>How are you using Vim?</h3>
+                        <h3>Plugins</h3>
                     </center>
                     <p>
-                    Do you find yourself using the arrows a lot?<br>
+                    Plugins will let you extend the functionality of Vim based
+                    off of other peoples works.<br>
                     <br>
-                    Does it take more time traversing the file than editing?<br>
-                    <br>
-                    Every time you fire up Vim you are left wondering how your Ninja Vim friend can edit so efficiently?<br>
+                    Some popular Vim plugin for plugin management!
                     </p>
+                    <ul>
+                        <li>https://github.com/tpope/vim-pathogen - Pathogen</li>
+                        <li>https://github.com/gmarik/Vundle.vim - Vundle (I use this one)</li>
+                        <li>https://github.com/Shougo/neobundle.vim - NeoBundle</li>
+                    </ul>
                 </div>
                 <!-- End of Slide -->
 
                 <!-- Slide -->
-                <div class='slide hide-counter' style="background: url('./img/background2.jpg');">
+                <div class='slide hide-counter' style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('./img/background3.jpg');">
                     <div class='center-wrapper'>
                         <span class='center'>
-                            <h1><center>WORRY NO MORE</center></h1>
+                            <h1><center>Demos</center></h1>
+                            <h3><center>Press 't' to open the Terminal</center></h3>
                         </span>
                     </div>
                 </div>
@@ -178,287 +184,22 @@
                 <!-- Slide -->
                 <div class='slide'>
                     <center>
-                        <h3>Vim Modes</h3>
+                        <h3>Useful Plugins</h3>
                     </center>
-                    <p>
-                    Vim has Three basic modes of operation.
-                    </p>
                     <ul>
-                        <li>&lt;ESC&gt; - Normal Mode. Lets you navigate the file. The
-                        "Gateway Mode".</li>
-                        <li>i - Insert Mode. Lets you edit the text.</li>
-                        <li>v - Visual Mode. Lets you select text.</li>
+                        <li>klen/python - Absolutely must have for Python Development</li>
+                        <li>scrooloose/syntastic - Syntax checking in Vim!</li>
+                        <li>scrooloose/nerdtree - File browser in Vim!</li>
+                        <li>tristen/vim-sparkup - Html auto completion!</li>
+                        <li>SirVer/ultisnips - TextMate like text expansion</li>
+                        <li>bling/vim-airline - Sexy as hell status lines</li>
+                        <li>tpope/vim-surround - Surreal surrounding</li>
                     </ul>
                 </div>
                 <!-- End of Slide -->
 
                 <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Vim Motions</h3>
-                    </center>
-                    <ul>
-                        <li>h - Move <b>Left</b> one character</li>
-                        <li>j - Move <b>Down</b> one character</li>
-                        <li>k - Move <b>Up</b> one character</li>
-                        <li>l - Move <b>Right</b> one character</li>
-                    </ul>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Vim Motions</h3>
-                    </center>
-                    <ul>
-                        <li>w - Move <b>Forwards</b> one <b>Word</b></li>
-                        <li>b - Move <b>Backwards</b> one <b>Word</b></li>
-                        <li>e - Move to <b>End</b> of next <b>Word</b></li>
-                    </ul>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Vim Motions</h3>
-                    </center>
-                    <ul>
-                        <li>W - Move <b>Forwards</b> one <b>Big Word</b></li>
-                        <li>B - Move <b>Backwards</b> one <b>Big Word</b></li>
-                        <li>E - Move to <b>End</b> of next <b>Big Word</b></li>
-                    </ul>
-                    <p>
-                    What is a <b>Big Word</b><br>
-                    Well... Big words are any non-whitespace character.
-                    </p>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Vim Motions</h3>
-                    </center>
-                    <ul>
-                        <li>) - Move to <b>Forward</b> one <b>Sentence</b></li>
-                        <li>( - Move to <b>Backward</b> one <b>Sentence</b></li>
-                        <li>} - Move <b>Forward</b> one <b>Paragraph</b></li>
-                        <li>{ - Move <b>Backward</b> one <b>Paragraph</b></li>
-                    </ul>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Vim Motions</h3>
-                    </center>
-                    <p>
-                    Remember: Any motion can be preceded by a number to let Vim
-                    know how many times you would like to repeat the motion.
-                    </p><br>
-                    <p>
-                    For example:<br>
-                    <ul>
-                        <li>3w    -  Move 3 words forward.</li>
-                        <li>2{    -  Move 2 paragraphs backward.</li>
-                        <li>900e  -  Move to the end of 900 words.</li>
-                    </ul>
-                    </p>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Vim Motions</h3>
-                    </center>
-                    <p>
-                    You can also use the `.` command to rerun the last edit.
-                    </p>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Vim Operators</h3>
-                    </center>
-                    <ul>
-                        <li>c - Change Text</li>
-                        <li>d - Delete Text</li>
-                        <li>y - Yank Text</li>
-                    </ul>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Vim Operators</h3>
-                    </center>
-                    <p>
-                    Vim operators can not be used alone. They must be paired
-                    with a motion.<br>
-                    If you think about it, that really makes sense. You cannot
-                    just "change" or just "delete".<br>
-                    You can however "change a word" or "delete a word".
-                    </p>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Vim Operators</h3>
-                    </center>
-                    <ul>
-                        <li>cw - Change a word</li>
-                        <li>dw - Delete a word</li>
-                        <li>yw - Yank a word</li>
-                    </ul>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Vim Operators</h3>
-                    </center>
-                    <p>
-                    But wait... There is more than just those motions.
-                    </p>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Vim Operators</h3>
-                    </center>
-                    <ul>
-                        <li>c) - Change a sentence</li>
-                        <li>y} - Yank a paragraph</li>
-                        <li>d4w - Delete 4 words</li>
-                    </ul>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Vim Text Objects</h3>
-                    </center>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Vim Text Objects</h3>
-                    </center>
-                    <p>
-                    Text objects bring even more power to your Vim editing.<br>
-                    Now instead of needing to move to the beginning of a word
-                    to perform an operation on it you can use a Text object.<br>
-                    <br>
-                    <ul>
-                        <li>i - Inside of</li>
-                        <li>a - Around</li>
-                    </ul>
-                    </p>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Vim Text Objects</h3>
-                    </center>
-                    <p>
-                    <ul>
-                        <li>ciw - Change Inside of a Word.</li>
-                        <li>caw - Change Around a Word.</li>
-                        <li>diw - Delete Inside of a Word.</li>
-                        <li>daw - Delete Around a Word.</li>
-                        <li>yiw - Yank Inside of a Word.</li>
-                        <li>yaw - Yank Around a Word.</li>
-                    </ul>
-                    </p>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Vim Text Objects</h3>
-                        <h4>Demo</h4>
-                    </center>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Configurations</h3>
-                    </center>
-                    <p>
-                    Your personal Vim configurations can be found in
-                    ~/.vimrc<br>
-                    All of your Vim plugin files can be found in ~/.vim/
-                    </p>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Sample Vimrc</h3>
-                        <h4>Demo</h4>
-                    </center>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Configurations</h3>
-                    </center>
-                    <p>
-                    It may seem a little bit over the top but I strongly suggest
-                    you use some form of version control to manage your
-                    dotfiles. Not just your Vim configurations but all of your
-                    dotfiles.
-                    </p>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Use Github to manage your dotfiles</h3>
-                    </center>
-                    <ul>
-                        <li>Makes your dotfiles universally available.</li>
-                        <li>You can easily make updates and track tricks you've learned.</li>
-                        <li>Free to make changes with no worries at all.</li>
-                        <li>It's what all the cool kids are doing.</li>
-                    </ul>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Demo</h3>
-                    </center>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide hide-counter' style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('./img/background3.jpg');">
+                <div class='slide hide-counter' style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('./img/background2.jpg');">
                     <div class='center-wrapper'>
                         <span class='center'>
                             <h1><center>Questions?</center></h1>
@@ -508,6 +249,7 @@
                     //return; // Just for debugging. Remove this line for terminal.
                     var webvim_server = "";
                     //sock = new SockJS(webvim_server);
+                    sock = {}
                     sock.onopen = function() {
                         term.fixResize();
                         sock.ready = true;
@@ -566,7 +308,8 @@
             $(window).load(function() {
                 // Create the HTML for the indicator
                 $("#presentation > div").each(function(index,elm) {
-                    $(elm).append("<div class='counter'>" + (index) + "<br>Follow along at http://brittg.com/catbarcamp</div>");
+                    $(elm).append("<div class='counter'>" + (index) +
+                        "<br>Follow along at http://brittg.com/catbarcamp</div>");
                 });
 
                 presentation = new Presenteer(
