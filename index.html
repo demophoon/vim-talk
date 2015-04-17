@@ -139,7 +139,7 @@
                                         <li>Html</li>
                                     </ul>
                                     </li>
-                                    <li>Using Vim for about 1.5 years</li>
+                                    <li>Using Vim for about 2.5 years</li>
                                     <li>Software Engineer at Puppet Labs</li>
                                 </ul>
                             </div>
@@ -350,6 +350,46 @@
                 <!-- Slide -->
                 <div class='slide'>
                     <center>
+                        <h3>Vim Operators</h3>
+                    </center>
+                    <p>
+                    Double up on an operator to perform the operation on a line.
+                    </p>
+                    <ul>
+                        <li>cc - Change the current line</li>
+                        <li>dd - Delete the current line</li>
+                        <li>yy - Yank the current line</li>
+                    </ul>
+                    <p>
+                    <small>This is typically the case for most actions in Vim.</small>
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Vim Operators</h3>
+                    </center>
+                    <p>
+                    Uppercase variants perform the operation from your where your cursor is to end of the line
+                    </p>
+                    <ul>
+                        <li>C - Change until end of current line</li>
+                        <li>D - Delete until end of current line</li>
+                    </ul>
+                    <p>
+                    <small>This is typically the case for most actions in Vim.</small>
+                    </p>
+                    <p>
+                    <small><b>Note</b>, The exception is Y which yanks the current line.</small>
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
                         <h3>Vim Text Objects</h3>
                     </center>
                 </div>
@@ -403,12 +443,13 @@
                 <!-- Slide -->
                 <div class='slide'>
                     <center>
-                        <h3>Configurations</h3>
+                        <h3>Macros</h3>
                     </center>
                     <p>
-                    Your personal Vim configurations can be found in
-                    ~/.vimrc<br>
-                    All of your Vim plugin files can be found in ~/.vim/
+                    Macros are a really great way for speeding up mundane tasks.
+                    </p>
+                    <p>
+                    To start recording a macro press q and then a register to start recording to.
                     </p>
                 </div>
                 <!-- End of Slide -->
@@ -416,45 +457,335 @@
                 <!-- Slide -->
                 <div class='slide'>
                     <center>
-                        <h3>Sample Vimrc</h3>
-                        <h4>Demo</h4>
-                    </center>
-                </div>
-                <!-- End of Slide -->
-
-                <!-- Slide -->
-                <div class='slide'>
-                    <center>
-                        <h3>Configurations</h3>
+                        <h3>Macros</h3>
                     </center>
                     <p>
-                    It may seem a little bit over the top but I strongly suggest
-                    you use some form of version control to manage your
-                    dotfiles. Not just your Vim configurations but all of your
-                    dotfiles.
+                    To stop recording the macro press q again.
                     </p>
+                    <p>
+                    Run macros by pressing @ and then the register that you stored the macro in.
+                    </p>
+
                 </div>
                 <!-- End of Slide -->
 
                 <!-- Slide -->
                 <div class='slide'>
                     <center>
-                        <h3>Use Github to manage your dotfiles</h3>
+                        <h3>Macros</h3>
                     </center>
+                    <p>
                     <ul>
-                        <li>Makes your dotfiles universally available.</li>
-                        <li>You can easily make updates and track tricks you've learned.</li>
-                        <li>Free to make changes with no worries at all.</li>
-                        <li>It's what all the cool kids are doing.</li>
+                        <li>qa - Start recording in register a</li>
+                        <li>q  - Stop the recording of a macro</li>
+                        <li>@a - Playback the recording stored in register a</li>
                     </ul>
+                    </p>
                 </div>
                 <!-- End of Slide -->
 
                 <!-- Slide -->
                 <div class='slide'>
                     <center>
-                        <h3>Demo</h3>
+                        <h3>Macros</h3>
                     </center>
+                    <p>
+                    Remember that Vim is recording keystrokes and not actions.
+                    Make your macros repeatable by using more advanced motions.
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Macros</h3>
+                        <h4>Demo</h4>
+                        <p>
+                        Surrounding lines with quotes.
+                        </p>
+                    </center>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Visual Mode</h3>
+                    </center>
+                    <p>
+                    <ul>
+                        <li>v   - Enter visual mode in characterwise mode</li>
+                        <li>V   - Enter visual mode in linewise mode</li>
+                        <li>c-v - Enter visual mode in blockwise mode</li>
+                        <li>v   - Exits visual mode when in visual mode</li>
+                    </ul>
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Visual Mode</h3>
+                    </center>
+                    <p>
+                    Use Blockwise visual mode or c-v for performing the same task on multiple lines.
+                    </p>
+                    <p>
+                    Use I to insert on every line on the leading edge of the Blockwise Visual selection
+                    </p>
+                    <p>
+                    Use A to insert on every line on the trailing edge of the Blockwise Visual selection
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Visual Mode</h3>
+                        <h4>Demo</h4>
+                        <p>
+                        Surrounding lines with quotes.
+                        </p>
+                    </center>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Command mode</h3>
+                    </center>
+                    <p>
+                    Perform substitutions with :s[ubstitute]
+                    </p>
+                    <p>
+                    :s/&lt;search&gt;/&lt;replace&gt;/
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Command mode</h3>
+                    </center>
+                    <p>All of Vim's modes have commands associated with them.</p>
+                    <p>
+                    <ul>
+                        <li>:norm[al] - Perform action in Normal mode with command mode</li>
+                        <li>:i[nsert] - Perform action in Insert mode with command mode</li>
+                        <li>:vi[sual] - Perform action in Visual mode with command mode</li>
+                    </ul>
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Command mode</h3>
+                    </center>
+                    <p>All of Vim's operators also have commands associated with them.</p>
+                    <p>
+                    <ul>
+                        <li>:c[hange] - Change text with command mode</li>
+                        <li>:d[elete] - Delete text with command mode</li>
+                        <li>:y[ank]   - Yank text with command mode</li>
+                    </ul>
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Command mode</h3>
+                    </center>
+                    <p>Why spend time learning these if we can just use the keys we learned before?</p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Command mode</h3>
+                    </center>
+                    <p>
+                    Super charge macros and visual mode with :g and :v
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Command mode</h3>
+                    </center>
+                    <p>
+                    <ul>
+                        <li>:g[lobal]  - Perform an action on lines matching a regex</li>
+                        <li>:g[lobal]! - Perform an action on lines not matching a regex</li>
+                        <li>:v[global] - Same as :g!. Think of the in<b>v</b>erse of global</li>
+                    </ul>
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Command mode</h3>
+                    </center>
+                    <p>
+                    So how do I use :global??
+                    </p>
+                    <p>
+                    :global/&lt;regex_pattern&gt;/&lt;command_to_perform&gt;
+                    </p>
+                    <p>
+                    <ul>
+                        <li>:global/^Remove me$/delete</li>
+                        <li>:global/yank \w\+ me/yank</li>
+                    </ul>
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Command mode</h3>
+                    </center>
+                    <p>
+                    But wait there is more!
+                    </p>
+                    <p>
+                    <ul>
+                        <li>:g/Some regex/normal @a</li>
+                    </ul>
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Command mode</h3>
+                    </center>
+                    <p>
+                    But wait there is even more!!!
+                    </p>
+                    You can perform these actions over a specific range in your file
+                    <p>
+                    <ol>
+                        <li>Visually select a region in your file</li>
+                        <li>:g/run macro/normal @q</li>
+                    </ol>
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Command mode</h3>
+                    </center>
+                    <p>
+                    Notice how Vim automatically inserts :'&lt;,'&gt; before g.
+                    </p>
+                    <p>
+                    Vim is telling this command what range to perform the command over.
+                    By default the :global command runs over the entire file.
+                    </p>
+                    <p>
+                    Most commands accept a range that you can use to perform that command over an area in a file.
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Command mode</h3>
+                    </center>
+                    <p>
+                    Ranges come before a command and tell that command where to run.
+                    </p>
+                    <p>
+                    <ul>
+                      <li>:42 - Perform command on Line 42</li>
+                      <li>:1  - Perform command on first line</li>
+                      <li>:$  - Perform command on last line</li>
+                      <li>:.  - Perform command on current line</li>
+                      <li>:%  - Perform command on all lines</li>
+                      <li>:+3 - Perform command on next 3 lines</li>
+                    </ul>
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Command mode</h3>
+                    </center>
+                    <p>
+                    Ranges come before a command and tell that command where to run.
+                    </p>
+                    <p>
+                    <ul>
+                      <li>:10,20 - Perform command on lines 10 to 20 (Inclusive)</li>
+                      <li>:21,$ - Perform command on lines 21 to end of file</li>
+                      <li>:70,+5 - Perform command on lines 70 to 75 (Inclusive)</li>
+                    </ul>
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Command mode</h3>
+                    </center>
+                    <p>
+                    <ul>
+                      <li>:%s/search/replace/ - Search and replace over entire file</li>
+                      <li>:21,$g/search/normal @a - Run macro from line 21 to end of file</li>
+                      <li>:70,+5delete - Delete lines 70 through 75 (Inclusive)</li>
+                    </ul>
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Command mode</h3>
+                    </center>
+                    <p>
+                    Without a command Vim will move your cursor to that line
+                    </p>
+                    <p>
+                    <ul>
+                      <li>:10 - Move to line 10</li>
+                    </ul>
+                    </p>
+                </div>
+                <!-- End of Slide -->
+
+                <!-- Slide -->
+                <div class='slide'>
+                    <center>
+                        <h3>Command mode</h3>
+                    </center>
+                    <p>
+                    When in doubt :help is your best friend!
+                    </p>
                 </div>
                 <!-- End of Slide -->
 
@@ -478,7 +809,7 @@
                         <li>Website: http://brittg.com/</li>
                         <li>Email: brittcgresham@gmail.com</li>
                         <li>Twitter: @demophoon</li>
-                        <li>Github: https://github.com/demophoon</li>
+                        <li>Slides: https://github.com/demophoon/vim-talk</li>
                         <li>LinkedIn: http://brittg.com/linkedin</li>
                     </ul>
                 </div>
