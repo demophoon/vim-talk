@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Starter Page</title>
+
+        <style type='text/css'>
+            #test_terminal {
+                font-family: monospace;
+            }
+            #test_terminal .terminal-cursor {
+                color: #000000;
+                background: #ffffff;
+            }
+        </style>
+
+        <script type="text/javascript" charset="utf-8" src="/static/js/term.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/static/js/autolink-min.js"></script>
+        <script type="text/javascript" src="/static/js/jquery-1.11.1.min.js"></script>
+        <script src="/static/js/sockjs.min.js"></script>
+        <script src="/static/js/webterm.js"></script>
+
+    </head>
+    <body>
+        <div id="test_terminal"></div>
+        <script type='text/javascript'>
+            var term = Webterm("/terminal", "#test_terminal");
+        </script>
+    </body>
+</html>
