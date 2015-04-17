@@ -8,15 +8,12 @@ Vagrant.configure(2) do |config|
 
   # config.vm.network "private_network", ip: "192.168.33.10"
   # config.vm.network "public_network"
-  # config.vm.synced_folder "../data", "/vagrant_data"
+  config.vm.synced_folder "./", "/webterm"
 
    config.vm.provider "virtualbox" do |vb|
      # Customize the amount of memory on the VM:
      vb.memory = "1024"
    end
-
-  config.vm.provision "file", source: "puppet/modules/webterm/files/Dockerfile", destination: "/home/vagrant/Dockerfile"
-  config.vm.provision "file", source: "puppet/modules/webterm/files/webterm.conf", destination: "/home/vagrant/webterm.conf"
 
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get update
@@ -33,15 +30,15 @@ Vagrant.configure(2) do |config|
     puppet module install ${module?}
     puppet module install puppetlabs-vcsrepo
     puppet module install stankevich-python
-    cp /home/vagrant/webterm.conf /etc/init/webterm.conf
   SHELL
 
   config.vm.provision "puppet" do |puppet|
       puppet.manifests_path = "puppet"
-      puppet.manifest_file = "install.pp"
+      puppet.module_path = "$modulepath:/vagrant/puppet/modules"
+      puppet.manifest_file = "site.pp"
   end
 
   config.vm.provision "shell", inline: <<-SHELL
-    sudo service webterm start
+    service webterm start
   SHELL
 end
