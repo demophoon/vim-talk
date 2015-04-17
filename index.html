@@ -101,7 +101,8 @@
             <div class="presentation" id="presentation">
 
                 <!-- Slide -->
-                <div class='slide no_padding terminal' id="vim_terminal">
+                <div class='slide no_padding terminal'>
+                    <div id="vim_terminal"></div>
                 </div>
                 <!-- End of Slide -->
 
@@ -494,143 +495,11 @@
         <script src="./js/jquery-1.8.1.min.js"></script>
         <script src="./js/presenteer-1.0.min.js"></script>
 
-        <script src="http://www.brittg.sexy/static/js/term.js"></script>
-        <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+        <script charset="utf-8" src="./js/term.js"></script>
+        <script charset="utf-8" src="./js/sockjs.min.js"></script>
+        <script charset="utf-8" src="./js/webterm.js"></script>
 
-        <script type="text/javascript" charset="utf-8">
-            var presentation;
-
-            (function() {
-                var connected = false;
-                var sock;
-                var term;
-                function connect_to_ws() {
-                    //return; // Just for debugging. Remove this line for terminal.
-                    var webvim_server = "";
-                    //sock = new SockJS(webvim_server);
-                    sock.onopen = function() {
-                        term.fixResize();
-                        sock.ready = true;
-                    };
-                    sock.onmessage = function(e) {
-                        if (e.data) {
-                            term.write(e.data);
-                        }
-                    };
-                    sock.onclose = function() {
-                        sock.ready = false;
-                        term.reset();
-                        term.writeln("The demos are over. Checkout http://brittg.sexy for an instance of Vim you can play with");
-                    };
-                    sock.onclose();
-                }
-                function init() {
-                    var termWidth = 600;
-                    var termHeight = 400;
-                    var termFontSize = 10;
-                    term = new Terminal({
-                        cols:119,
-                        rows:40,
-                        screenKeys:true
-                    });
-
-                    term.open(document.getElementById("vim_terminal"));
-
-                    term.on("data", function(data) {
-                        var current = presentation.getCurrentIndex();
-                        if (current == 0) {
-                            sock.send("0" + data);
-                        }
-                        setTimeout(function() { sock.send(" "); }, 100);
-                    });
-
-                    term._resize = term.resize;
-                    term.resize = function(x, y) {
-                        term._resize(x, y);
-                        sock.send("1" + x + "," + y);
-                    };
-
-                    term.fixResize = function() {
-                        setTimeout(function() {
-                            term.resize(119, 40);
-                        }, 50);
-                    };
-                    if (!connected) {
-                        connect_to_ws();
-                        connected = true;
-                    }
-                }
-                $(document).ready(init);
-            }());
-
-            $(window).load(function() {
-                // Create the HTML for the indicator
-                $("#presentation > div").each(function(index,elm) {
-                    $(elm).append("<div class='counter'>" + (index) + "<br>Follow along at http://brittg.com/catbarcamp</div>");
-                });
-
-                presentation = new Presenteer(
-                    "#presentation",
-                    $("#presentation > div"),
-                    { onAfterEnter : function(elm) {  } }
-                );
-
-                var locked = false;
-                var last = 1;
-
-                $(document).keydown(function(e) {
-                    var current = presentation.getCurrentIndex();
-                    if (current == 0) {
-                        if (!(e.altKey && e.ctrlKey)) {
-                            return;
-                        }
-                    }
-                    switch (e.keyCode) {
-                    case 32:
-                    case 39:
-                    case 40:
-                        if (current == 0) {
-                            return;
-                        }
-                        if (!locked) {
-                            presentation.next();
-                        }
-                        break;
-                    case 38:
-                    case 37:
-                        if (current == 0) {
-                            return;
-                        }
-                        if (!locked) {
-                            presentation.prev();
-                        }
-                        break;
-                    case 84:
-                        if (!locked) {
-                            if (current == 0) {
-                                presentation.show(last);
-                            } else {
-                                last = current;
-                                presentation.show(0)
-                            }
-                        }
-                        break;
-                    case 76:
-                        if (e.ctrlKey && e.altKey) {
-                            locked = !locked;
-                        }
-                        break;
-                    default:
-                        console.log(e);
-                        break;
-                    }
-                });
-                //$("#presentationcontainer").on("click", function() { presentation.next(); });
-                $('.initial').focus();
-                presentation.start();
-                presentation.show(1);
-            });
-        </script>
+        <script charset="utf-8" src="./js/presentation.js"></script>
 
     </body>
 </html>
