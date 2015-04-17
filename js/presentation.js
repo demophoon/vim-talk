@@ -8,7 +8,7 @@ var term = Webterm('http://192.168.1.4:9090/terminal', '#vim_terminal', {
 $(window).load(function() {
     // Create the HTML for the indicator
     $("#presentation > div").each(function(index,elm) {
-        $(elm).append("<div class='counter'>" + (index) + "<br>Follow along at http://brittg.com/catbarcamp</div>");
+        $(elm).append("<div class='counter'>" + (index) + "<br>Follow along at http://brittg.com/vim</div>");
     });
 
     presentation = new Presenteer(
