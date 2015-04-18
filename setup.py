@@ -14,6 +14,6 @@ setup(
     ],
     entry_points="""
     [console_scripts]
-    webterm_server=webvim.app:main
+    webterm_server=webterm.app:main
     """
 )

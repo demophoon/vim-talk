@@ -34,7 +34,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "puppet" do |puppet|
       puppet.manifests_path = "puppet"
-      puppet.module_path = "$modulepath:/vagrant/puppet/modules"
+      puppet.module_path = "puppet/modules"
       puppet.manifest_file = "site.pp"
   end
 

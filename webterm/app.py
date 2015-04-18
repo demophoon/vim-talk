@@ -19,7 +19,8 @@ class EntrypointHandler(web.RequestHandler):
                 self.set_cookie("term", TerminalClient.create_session())
             elif not term:
                 self.set_cookie("term", TerminalClient.create_session())
-            self.render("templates/terminal.html")
+            self.redirect('/talk/index.html', permanent=False)
+            #self.render("templates/terminal.html")
         except CommandException as e:
             self.write(str(e))
 
@@ -60,7 +61,8 @@ def main():
         TerminalRouter.urls,
         static_path=os.path.join(base_path, 'static'))
     app.add_handlers(r".*", [
-        (r"/$", web.StaticFileHandler, {"path": "/vagrant"}),
+        (r"/$", EntrypointHandler),
+        (r"/talk/(.*)", web.StaticFileHandler, {"path": "../"}),
     ])
 
     # Start the server

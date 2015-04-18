@@ -18,6 +18,11 @@ var Webterm = function(api_endpoint, init_element, options) {
     function connect_to_ws() {
         sock = new SockJS(api_endpoint);
         sock.onopen = function() {
+            if (options.session_id) {
+                sock.send("c" + options.session_id);
+            } else {
+                sock.send('c');
+            }
             sock.ready = true;
             term.fixResize();
         };

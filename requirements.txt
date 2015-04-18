@@ -2,4 +2,4 @@ backports.ssl-match-hostname==3.4.0.2
 certifi==14.5.14
 sockjs-tornado==1.0.1
 tornado==4.1
-webterm==0.1.0
+webterm==git+file:///.@HEAD#egg=webvim

@@ -88,10 +88,12 @@ class TerminalClient(SockJSConnection):
 
     def on_open(self, info):
         self.session_id = info.get_cookie("term")
+        print self.session_id
         if self.session_id:
             self.session_id = self.session_id.value
         if self.session_id == "sandbox":
             self.session_id = self.create_session()
+        self.open_terminal()
 
     def on_message(self, message):
         self.last_update = time.time()

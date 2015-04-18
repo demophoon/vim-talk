@@ -19,9 +19,9 @@ class webterm {
     }
 
     vcsrepo { '/opt/webvim':
-        source => '/webterm',
+        source => '/vagrant',
     } ->
-    python::requirements { '/opt/webvim/requirements.txt': }
+    python::requirements { '/opt/webvim/webterm/requirements.txt': }
 
     file { '/etc/init/webterm.conf':
         source => 'puppet:///modules/webterm/webterm.conf',
@@ -34,7 +34,7 @@ class webterm {
     exec { 'build_container':
         command => 'docker build --tag demophoon/webvim .',
         path    => '/usr/bin',
-        cwd     => '/home/vagrant/',
+        cwd     => '/tmp',
         require => [Class['docker'], File['/tmp/Dockerfile']],
     }
 }
